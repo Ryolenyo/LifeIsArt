@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Enemy : BaseEnemy {
 
-  void OnMove()
+  protected override void OnMove()
   {
-
+    base.OnMove();
   }
 }
