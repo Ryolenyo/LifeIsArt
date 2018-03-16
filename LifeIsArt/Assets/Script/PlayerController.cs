@@ -17,6 +17,18 @@ public class PlayerController : MonoBehaviour {
   void FixedUpdate()
   {
     UpdatePosition();
+    UpdateRotation();
+  }
+
+  private void UpdateRotation()
+  {
+    LookAtMouse();
+  }
+
+  private void LookAtMouse()
+  {
+    Vector3 direction = new Vector3(transform.position.x - _Target.x, transform.position.y - _Target.y);
+    transform.up = direction;
   }
 
   private void UpdatePosition()
