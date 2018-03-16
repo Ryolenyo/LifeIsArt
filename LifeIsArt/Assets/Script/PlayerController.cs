@@ -11,17 +11,8 @@ public class PlayerController : MonoBehaviour {
 
 
   private Vector3 _Target;
-  private bool _IsNormalMove;
+  private bool _IsNormalMove = true;
   private bool _UsingLerpMove = false;
-
-  void Awake()
-  {
-    _IsNormalMove = true;
-  }
-
-  void Start()
-  {
-  }
 
   void FixedUpdate()
   {
