@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212090872390147336}
   - component: {fileID: 114181063809324968}
   - component: {fileID: 114117592628087368}
+  - component: {fileID: 95711047228437566}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -42,6 +43,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &95711047228437566
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1393869232510494}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3e0f10052849aea42ab81332570e4df2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114117592628087368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -70,6 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _MaxDistance: 0.5
   _VCam: {fileID: 0}
+  _MouseReference: {fileID: 0}
 --- !u!212 &212090872390147336
 SpriteRenderer:
   m_ObjectHideFlags: 1
