@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour {
   private readonly float _SelectBlinkAreaTime = 1.0f;
 
   private Vector3 _Target;
+  private Vector3 _TeleportTarget;
   private bool _IsNormalMove = true;
   private bool _IsTackle = false;
   private bool _IsBlinking = false;
@@ -103,6 +104,11 @@ public class PlayerController : MonoBehaviour {
     {
       UsingBlink();
     }
+
+    if (Input.GetKeyDown(KeyCode.Mouse0) && _IsBlinking)
+    {
+      _TeleportTarget = _MouseReference.position;
+    }
   }
 
   private void UsingBuffSpeed()
@@ -128,6 +134,7 @@ public class PlayerController : MonoBehaviour {
   {
     if (_CountBlinkCooldown > _BlinkCooldown)
     {
+      _TeleportTarget = transform.position;
       _IsNormalMove = false;
       StartCoroutine("Blink");
       _CountBlinkCooldown = 0.0f;
@@ -153,6 +160,7 @@ public class PlayerController : MonoBehaviour {
   IEnumerator TackleReady()
   {
     Debug.Log("Tackle ready.");
+
     yield return new WaitForSeconds(0.3f);
     StartCoroutine("TackleCharge");
   }
@@ -176,7 +184,6 @@ public class PlayerController : MonoBehaviour {
 
   IEnumerator Blink()
   {
-    Debug.Log("Going to blink.");
     yield return new WaitForSeconds(0.2f);
     _IsBlinking = true;
     StartCoroutine("SelectBlinkArea");
@@ -184,10 +191,11 @@ public class PlayerController : MonoBehaviour {
 
   IEnumerator SelectBlinkArea()
   {
-    Debug.Log("Selecting area.");
     _VCam.Follow = _MouseReference;
-    if (Input.GetKeyDown(KeyCode.E))
     yield return new WaitForSeconds(0.5f);
-    
+    transform.position = _TeleportTarget;
+    _VCam.Follow = transform;
+    _IsNormalMove = true;
+    _IsBlinking = false;
   }
 }
