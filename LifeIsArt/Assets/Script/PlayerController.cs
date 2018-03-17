@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
 
   private Vector3 _Target;
   private bool _IsNormalMove = true;
+  private bool _IsTackle = false;
   private bool _UsingLerpMove = false;
   private float _CountDashCooldown = 0.0f;
   private float _CountTackleCooldown = 0.0f;
@@ -28,9 +29,9 @@ public class PlayerController : MonoBehaviour {
 
   void FixedUpdate()
   {
+    CheckAction();
     UpdatePosition();
     UpdateRotation();
-    CheckAction();
   }
 
   private void UpdateRotation()
@@ -43,19 +44,6 @@ public class PlayerController : MonoBehaviour {
     _Target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     _Target.z = transform.position.z;
 
-    //for change mode of moving
-    if (Input.GetKeyDown("z"))
-    {
-      if (!_UsingLerpMove)
-      {
-        _UsingLerpMove = true;
-      }
-      else
-      {
-        _UsingLerpMove = false;
-      }
-    }
-
     MovingToward(_Target);
   }
 
@@ -67,7 +55,7 @@ public class PlayerController : MonoBehaviour {
 
   private void MovingToward(Vector3 target)
   {
-    transform.position = Vector3.MoveTowards(transform.position, target, _MaxDistance);
+    if (_IsNormalMove) transform.position = Vector3.MoveTowards(transform.position, target, _MaxDistance);
   }
 
   private void CheckAction()
@@ -123,7 +111,31 @@ public class PlayerController : MonoBehaviour {
 
   IEnumerator Tackle()
   {
+    Debug.Log("Tackling !!");
+    StartCoroutine("TackleReady");
+    yield return null;
+  }
 
-    yield return new WaitForSeconds(0.5f);
+  IEnumerator TackleReady()
+  {
+    Debug.Log("Tackle ready.");
+    yield return new WaitForSeconds(0.3f);
+    StartCoroutine("TackleCharge");
+  }
+
+  IEnumerator TackleCharge()
+  {
+    Debug.Log("Tackle charging.");
+    yield return new WaitForSeconds(0.2f);
+    _IsTackle = true;
+    StartCoroutine("TackleAttack");
+  }
+
+  IEnumerator TackleAttack()
+  {
+    Debug.Log("Tackle attacking.");
+    yield return new WaitForSeconds(0.2f);
+    _IsNormalMove = true;
+    _IsTackle = false;
   }
 }
