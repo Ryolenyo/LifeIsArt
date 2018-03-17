@@ -6,6 +6,8 @@ public class BaseEnemy : MonoBehaviour {
 
   [SerializeField]
   protected float _Speed;
+  [SerializeField]
+  protected float _Scale;
 
   private GameObject _Target;
   private Vector3 _PlayerDirection;
@@ -22,6 +24,7 @@ public class BaseEnemy : MonoBehaviour {
   void FixedUpdate()
   {
     OnMove();
+    OnScaling();
   }
 
   protected virtual void OnMove()
@@ -29,8 +32,18 @@ public class BaseEnemy : MonoBehaviour {
     MovingToPlayerPosition();
   }
 
+  protected virtual void OnScaling()
+  {
+    ScaleEnemy();
+  }
+
   private void MovingToPlayerPosition()
   {
     transform.position = new Vector3(transform.position.x - (_PlayerDirection.x * _Speed), transform.position.y - (_PlayerDirection.y * _Speed), 0.0f);
+  }
+
+  private void ScaleEnemy()
+  {
+    transform.localScale = new Vector3(_Scale, _Scale, 0.0f);
   }
 }

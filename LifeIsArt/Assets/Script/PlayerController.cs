@@ -35,7 +35,6 @@ public class PlayerController : MonoBehaviour {
   {
     _Target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     _Target.z = transform.position.z;
-    //LerpMovingTo(_Target);
 
     //for change mode of moving
     if (Input.GetKeyDown("z"))
@@ -50,14 +49,7 @@ public class PlayerController : MonoBehaviour {
       }
     }
 
-    if (_UsingLerpMove)
-    {
-      LerpMovingTo(_Target);
-    }
-    else
-    {
-      MovingToward(_Target);
-    }
+    MovingToward(_Target);
   }
 
   private void LerpMovingTo(Vector3 target)
