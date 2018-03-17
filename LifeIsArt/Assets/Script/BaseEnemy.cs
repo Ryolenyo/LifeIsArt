@@ -26,8 +26,13 @@ public class BaseEnemy : MonoBehaviour
     void Awake()
     {
         _Target = GameObject.FindGameObjectWithTag("Player");
-        Vector3 player = _Target.transform.position;
-        Vector3 direction = new Vector3(transform.position.x - _Target.transform.position.x, transform.position.y - _Target.transform.position.y);
+        Vector3 player = Vector3.zero;
+        Vector3 direction = Vector3.zero;
+        if (_Target != null)
+        {
+            player = _Target.transform.position;
+            direction = new Vector3(transform.position.x - _Target.transform.position.x, transform.position.y - _Target.transform.position.y);
+        }
         transform.up = direction;
         _PlayerDirection = Vector3.Normalize(direction);
         firstpox = transform.position.x;
@@ -170,7 +175,8 @@ public class BaseEnemy : MonoBehaviour
     private void DashToPlayer()
     {
         transform.position = new Vector3(transform.position.x - (_PlayerDirection.x * _Speed), transform.position.y - (_PlayerDirection.y * _Speed), 0.0f);
-        float distant = Mathf.Sqrt(Mathf.Pow((transform.position.x - _Target.transform.position.x), 2) + Mathf.Pow((transform.position.y - _Target.transform.position.y), 2));
+        float distant = 0;
+        if (_Target != null) distant = Mathf.Sqrt(Mathf.Pow((transform.position.x - _Target.transform.position.x), 2) + Mathf.Pow((transform.position.y - _Target.transform.position.y), 2));
         //Debug.Log(distant);
         if (distant < 20 && on == 0)
         {

@@ -234,5 +234,5 @@ public class PlayerController : MonoBehaviour {
     _SlamPower.SetActive(false);
     _Animator.SetBool("Slam", false);
     _IsNormalMove = true;
-  }
+   }
 }

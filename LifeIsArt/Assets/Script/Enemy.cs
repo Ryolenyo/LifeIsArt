@@ -24,4 +24,11 @@ public class Enemy : BaseEnemy {
   {
     _Scale = scale;
   }
+  /*void OnTriggerEnter(Collider other)
+  {
+    if (other.tag == "Player")
+    {
+       Destroy(other.gameObject);
+    }
+  }*/
 }

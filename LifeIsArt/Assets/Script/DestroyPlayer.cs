@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class DestroyPlayer : MonoBehaviour {
 
+    public bool die = false;
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Player")
+        Debug.Log(other.tag);
+        if (other.tag.Equals("Player"))
         {
             Destroy(other.gameObject);
-            Destroy(gameObject);
+            die = true;
         }
     }
+
 }
