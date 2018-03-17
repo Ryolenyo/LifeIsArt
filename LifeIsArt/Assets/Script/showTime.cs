@@ -19,6 +19,6 @@ public class showTime : MonoBehaviour {
 	void Update () {
         timef += Time.deltaTime;
         time = Mathf.RoundToInt(timef);
-        text.text = "Score: " + time;		
+        text.text = "SCORE\n" + time;		
 	}
 }
