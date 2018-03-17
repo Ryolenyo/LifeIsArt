@@ -18,8 +18,10 @@ public class PlayerController : MonoBehaviour {
   private readonly float _DashSpeed = 2.0f;
   private readonly float _DashCooldown = 2.0f;
   private readonly float _TackleCooldown = 2.0f;
+  private readonly float _SlamCooldown = 2.0f;
   private readonly float _BlinkCooldown = 4.0f;
   private readonly float _TackleChargeTime = 1.0f;
+  private readonly float _SlamChargeTime = 1.0f;
   private readonly float _TackleChargeRange = 1.0f;
   private readonly float _TackleAttackRange = 2.0f;
   private readonly float _TackleAttackSpeed = 1.5f;
