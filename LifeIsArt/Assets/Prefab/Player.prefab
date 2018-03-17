@@ -38,6 +38,8 @@ GameObject:
   - component: {fileID: 114181063809324968}
   - component: {fileID: 114117592628087368}
   - component: {fileID: 95711047228437566}
+  - component: {fileID: 54512115693283570}
+  - component: {fileID: 136589653247923950}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -123,6 +125,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!54 &54512115693283570
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1393869232510494}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!58 &58077829817611476
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -191,6 +208,19 @@ MonoBehaviour:
   - {fileID: 21300012, guid: 042552df3da821d46919a7b15cf52f2d, type: 3}
   - {fileID: 21300018, guid: 042552df3da821d46919a7b15cf52f2d, type: 3}
   _SlamPower: {fileID: 1619835131426612}
+--- !u!136 &136589653247923950
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1393869232510494}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 2.005
+  m_Height: 6.19
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &212090872390147336
 SpriteRenderer:
   m_ObjectHideFlags: 1
