@@ -1,14 +1,29 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: f3cb12f73f532f642b6187098cb8bd67
 timeCreated: 1521272228
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
+=======
+guid: 03822394c71a9954f8b911818c8bab1a
+timeCreated: 1521272751
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: enemy_3_0
+    21300002: enemy_3_1
+    21300004: enemy_3_2
+>>>>>>> f8ec7c40a9dabb0e4f8c9f54b71bcd81be34a098
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
+<<<<<<< HEAD
     enableMipMap: 1
+=======
+    enableMipMap: 0
+>>>>>>> f8ec7c40a9dabb0e4f8c9f54b71bcd81be34a098
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -34,6 +49,7 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -1
+<<<<<<< HEAD
     wrapU: -1
     wrapV: -1
     wrapW: -1
@@ -41,6 +57,15 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 0
+=======
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+>>>>>>> f8ec7c40a9dabb0e4f8c9f54b71bcd81be34a098
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -48,9 +73,15 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaUsage: 1
+<<<<<<< HEAD
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 0
+=======
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+>>>>>>> f8ec7c40a9dabb0e4f8c9f54b71bcd81be34a098
   textureShape: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
@@ -65,9 +96,66 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+<<<<<<< HEAD
   spriteSheet:
     serializedVersion: 2
     sprites: []
+=======
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: enemy_3_0
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 1156
+        width: 713
+        height: 653
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_3_1
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 1153
+        width: 801
+        height: 656
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_3_2
+      rect:
+        serializedVersion: 2
+        x: 1987
+        y: 1156
+        width: 865
+        height: 685
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+>>>>>>> f8ec7c40a9dabb0e4f8c9f54b71bcd81be34a098
     outline: []
     physicsShape: []
   spritePackingTag: 
