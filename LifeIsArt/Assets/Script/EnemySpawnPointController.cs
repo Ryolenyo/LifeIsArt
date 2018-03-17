@@ -21,8 +21,8 @@ public class EnemySpawnPointController : MonoBehaviour {
   void Awake()
   {
     _Time = 0.0f;
-    _MaxRandomRangeY = GameObject.Find("BG").GetComponent<SpriteRenderer>().bounds.size.y;
-    _MaxRandomRangeX = GameObject.Find("BG").GetComponent<SpriteRenderer>().bounds.size.x;
+    _MaxRandomRangeY = GameObject.Find("BottomBG").GetComponent<SpriteRenderer>().bounds.size.y;
+    _MaxRandomRangeX = GameObject.Find("BottomBG").GetComponent<SpriteRenderer>().bounds.size.x;
   }
 
   void Start()

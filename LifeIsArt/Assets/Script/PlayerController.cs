@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour {
   private readonly float _DashSpeed = 2.0f;
   private readonly float _DashCooldown = 2.0f;
   private readonly float _TackleCooldown = 2.0f;
+  private readonly float _TackleChargeTime = 1.0f;
+  private readonly float _TackleChargeRange = 1.0f;
+  private readonly float _TackleAttackRange = 2.0f;
+  private readonly float _TackleAttackSpeed = 1.5f;
 
   private Vector3 _Target;
   private bool _IsNormalMove = true;
@@ -102,6 +106,7 @@ public class PlayerController : MonoBehaviour {
   {
     if (_CountTackleCooldown > _TackleCooldown)
     {
+      _IsNormalMove = false;
       StartCoroutine("Tackle");
       _CountTackleCooldown = 0.0f;
     }
@@ -118,6 +123,7 @@ public class PlayerController : MonoBehaviour {
 
   IEnumerator Tackle()
   {
+
     yield return new WaitForSeconds(0.5f);
   }
 }
