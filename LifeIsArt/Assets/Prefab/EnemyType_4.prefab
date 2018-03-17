@@ -22,6 +22,9 @@ GameObject:
   - component: {fileID: 212095244169493184}
   - component: {fileID: 95041480607178326}
   - component: {fileID: 114689598010167930}
+  - component: {fileID: 70666395504157874}
+  - component: {fileID: 50121185803856388}
+  - component: {fileID: 114824752545490788}
   m_Layer: 0
   m_Name: EnemyType_4
   m_TagString: E4
@@ -36,12 +39,47 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1636169112156596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.05, y: 0, z: 1}
+  m_LocalPosition: {x: -4.83227, y: -4.46739, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50121185803856388
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636169112156596}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!70 &70666395504157874
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636169112156596}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.000020987887, y: 0.059141643}
+  m_Size: {x: 8.594285, y: 7.9437532}
+  m_Direction: 1
 --- !u!95 &95041480607178326
 Animator:
   serializedVersion: 3
@@ -79,6 +117,17 @@ MonoBehaviour:
   dir: 0
   radius1: 10
   radius2: 5
+--- !u!114 &114824752545490788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636169112156596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d177b93fa6198494d9990015370f4f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212095244169493184
 SpriteRenderer:
   m_ObjectHideFlags: 1

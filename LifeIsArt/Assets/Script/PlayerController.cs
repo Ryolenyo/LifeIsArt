@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour {
   private Sprite[] _SpriteTackle;
   [SerializeField]
   private GameObject _SlamPower;
-
   private readonly float _DefaultSpeed = 0.5f;
   private readonly float _DashSpeed = 2.0f;
   private readonly float _DashCooldown = 2.0f;
