@@ -52,5 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _SetNewValueTime: 5
-  _EnemyPrefab: {fileID: 1717368332957374, guid: 3236a44ad69feee4f965b911e6174004,
-    type: 2}
+  enemylist:
+  - {fileID: 1310035130831098, guid: 64e062e77d092304e9d1e9590d07538d, type: 2}
+  - {fileID: 1959383138739434, guid: 992ebecf92a0aea419f09301828d4618, type: 2}
+  - {fileID: 1114781110035430, guid: 8dfb2d773da515840af7c6de67b7599f, type: 2}
+  - {fileID: 1636169112156596, guid: 934c5d3c2ed3bf443a9b144cc2c657ad, type: 2}
