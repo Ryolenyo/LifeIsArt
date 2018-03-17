@@ -1,0 +1,21 @@
+Thanks for purchasing "Shadow Trail"
+
+Note: The demo scene is using Unity Standard Assets 2D so if you get errors regarding any standard assets, please remove the folder called "Standard Assets" that is inside "Shadow Trail Asset"
+
+It's a very simple script that will help you to create a shadow trail of your 2D sprites.
+It works niceley with simple controllers that make use of flipX.
+
+If you are a programmer it should be very easy to understand and modify according to your needs.
+
+Steps to get it work:
+1.- Attach the ShadowTrail component to your GameObject. (Note: the game object should have a SpriteRenderer component attached, if no component is found the ShadowTrail component will be destroyed)
+2.Variable setup:
+Is Shadow Trail Active: Indicates if the script should generates shadows or not.
+Max Number Of Objects In Pool: To save resources we only use N number of game objects to generate the shadow. Default value 30.
+Shadow Trail Destroy Time: Indicates the wait time that will be used before destroying (deactivating) the shadow object. If this value is high then you will need to increase the number of "Max Number Of Objects in Pool" to get the desired effect. Default 0.275
+Shadow Starting Alpha: Indicates the value for the alpha channel in the SpriteRenderer.color property of the shadow game object.
+
+
+The default values should work to have a nice effect.
+
+Thanks again.

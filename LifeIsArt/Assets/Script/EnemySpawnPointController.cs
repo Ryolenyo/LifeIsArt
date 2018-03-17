@@ -51,8 +51,8 @@ public class EnemySpawnPointController : MonoBehaviour {
       if (_GateCooldown[entry.Key] > entry.Value)
       {
         GameObject enemy = Instantiate(_EnemyPrefab, _SpawnPoints[entry.Key], Quaternion.identity);
-        enemy.GetComponent<Enemy>().SetSpeed(Random.Range(0.1f, 0.3f));
-        enemy.GetComponent<Enemy>().SetScale(Random.Range(1.0f, 6.0f)); // making for variant size TODO: have to make big boss size that create at normal distribution.
+        enemy.GetComponent<Enemy>().SetSpeed(Random.Range(0.3f, 1.2f));
+        enemy.GetComponent<Enemy>().SetScale(Random.Range(3.0f, 18.0f)); // making for variant size TODO: have to make big boss size that create at normal distribution.
         _GateCooldown[entry.Key] = 0.0f;
       }
     }
