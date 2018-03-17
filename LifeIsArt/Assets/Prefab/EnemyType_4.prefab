@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4047890875922086}
   - component: {fileID: 212095244169493184}
   - component: {fileID: 95041480607178326}
+  - component: {fileID: 114689598010167930}
   m_Layer: 0
   m_Name: EnemyType_4
-  m_TagString: Untagged
+  m_TagString: E4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,6 +59,26 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114689598010167930
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636169112156596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b412698de075c47a46ab526f9edc7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Speed: 10
+  _Scale: 0
+  min: 0
+  max: 0
+  firstpox: 0
+  firstpoy: 0
+  dir: 0
+  radius1: 10
+  radius2: 5
 --- !u!212 &212095244169493184
 SpriteRenderer:
   m_ObjectHideFlags: 1
