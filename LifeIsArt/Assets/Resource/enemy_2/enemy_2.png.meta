@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 91a7dbec4fb14404380bdab6de0c8ae4
-timeCreated: 1521268377
+timeCreated: 1521299783
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -9,6 +9,8 @@ TextureImporter:
     21300004: enemy_2_2
     21300006: enemy_2_3
     21300008: enemy_2_4
+    21300010: enemy_2_5
+    21300012: enemy_2_7
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -110,41 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy_2_0
-      rect:
-        serializedVersion: 2
-        x: 269
-        y: 1218
-        width: 553
-        height: 564
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: enemy_2_1
-      rect:
-        serializedVersion: 2
-        x: 1178
-        y: 1258
-        width: 564
-        height: 564
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: enemy_2_2
       rect:
         serializedVersion: 2
-        x: 2169
-        y: 1146
-        width: 562
-        height: 676
+        x: 4006
+        y: 906
+        width: 1005
+        height: 1008
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,10 +129,10 @@ TextureImporter:
       name: enemy_2_3
       rect:
         serializedVersion: 2
-        x: 2318
-        y: 1178
-        width: 44
-        height: 53
+        x: 314
+        y: 992
+        width: 832
+        height: 834
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,13 +140,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: enemy_2_4
+      name: enemy_2_5
       rect:
         serializedVersion: 2
-        x: 2538
-        y: 1178
-        width: 44
-        height: 53
+        x: 1437
+        y: 911
+        width: 1006
+        height: 1003
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_2_7
+      rect:
+        serializedVersion: 2
+        x: 2745
+        y: 913
+        width: 1008
+        height: 1001
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
