@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour {
   private readonly float _SlamCooldown = 2.0f;
   private readonly float _BlinkCooldown = 4.0f;
   private readonly float _TackleChargeTime = 1.0f;
-  private readonly float _SlamChargeTime = 1.0f;
   private readonly float _TackleChargeRange = 1.0f;
   private readonly float _TackleAttackRange = 2.0f;
   private readonly float _TackleAttackSpeed = 1.5f;
@@ -39,6 +38,7 @@ public class PlayerController : MonoBehaviour {
   private float _CountTackleCooldown = 0.0f;
   private float _CountBlinkCooldown = 0.0f;
   private float _CountSlamCooldown = 0.0f;
+  private Animator _Animator;
 
   void Start()
   {
@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour {
     _CountTackleCooldown = _TackleCooldown;
     _CountBlinkCooldown = _BlinkCooldown;
     _CountSlamCooldown = _SlamCooldown;
+    _Animator = GetComponent<Animator>();
   }
 
   void FixedUpdate()
@@ -154,7 +155,12 @@ public class PlayerController : MonoBehaviour {
 
   private void UsingSlam()
   {
-
+    if (_CountSlamCooldown > _SlamCooldown)
+    {
+      _IsNormalMove = false;
+      StartCoroutine("Slam");
+      _CountSlamCooldown = 0.0f;
+    }
   }
 
   IEnumerator BuffSpeed()
@@ -218,5 +224,16 @@ public class PlayerController : MonoBehaviour {
   IEnumerator Slam()
   {
     yield return new WaitForSeconds(0.1f);
+    StartCoroutine("SlamColliderActive");
+  }
+
+  IEnumerator SlamColliderActive()
+  {
+    _Animator.SetBool("Slam", true);
+    _SlamPower.SetActive(true);
+    yield return new WaitForSeconds(0.5f);
+    _SlamPower.SetActive(false);
+    _Animator.SetBool("Slam", false);
+    _IsNormalMove = true;
   }
 }

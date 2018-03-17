@@ -120,11 +120,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114181063809324968, guid: fb1d4b2cb5b8bda47b2567f39d12fa9e,
-        type: 2}
-      propertyPath: _SpriteBlink.Array.size
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 4123116843459834, guid: fb1d4b2cb5b8bda47b2567f39d12fa9e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -167,6 +162,14 @@ Prefab:
       propertyPath: _MouseReference
       value: 
       objectReference: {fileID: 1935079510}
+    - target: {fileID: 4901908972638744, guid: fb1d4b2cb5b8bda47b2567f39d12fa9e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1619835131426612, guid: fb1d4b2cb5b8bda47b2567f39d12fa9e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb1d4b2cb5b8bda47b2567f39d12fa9e, type: 2}
   m_IsPrefabParent: 0
