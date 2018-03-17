@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour {
   private CinemachineVirtualCamera _VCam;
   [SerializeField]
   private Transform _MouseReference;
+  [SerializeField]
+  private Sprite[] _SpriteTackle;
 
   private readonly float _DefaultSpeed = 0.5f;
   private readonly float _DashSpeed = 2.0f;
@@ -184,6 +186,8 @@ public class PlayerController : MonoBehaviour {
   {
     Debug.Log("Selecting area.");
     _VCam.Follow = _MouseReference;
+    if (Input.GetKeyDown(KeyCode.E))
     yield return new WaitForSeconds(0.5f);
+    
   }
 }
