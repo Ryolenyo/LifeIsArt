@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour {
   private Transform _MouseReference;
   [SerializeField]
   private Sprite[] _SpriteTackle;
+  [SerializeField]
+  private GameObject _SlamPower;
 
   private readonly float _DefaultSpeed = 0.5f;
   private readonly float _DashSpeed = 2.0f;
@@ -32,16 +34,18 @@ public class PlayerController : MonoBehaviour {
   private bool _IsNormalMove = true;
   private bool _IsTackle = false;
   private bool _IsBlinking = false;
-  private bool _UsingLerpMove = false;
+  private bool _IsSlaming = false;
   private float _CountDashCooldown = 0.0f;
   private float _CountTackleCooldown = 0.0f;
   private float _CountBlinkCooldown = 0.0f;
+  private float _CountSlamCooldown = 0.0f;
 
   void Start()
   {
     _CountDashCooldown = _DashCooldown;
     _CountTackleCooldown = _TackleCooldown;
     _CountBlinkCooldown = _BlinkCooldown;
+    _CountSlamCooldown = _SlamCooldown;
   }
 
   void FixedUpdate()
@@ -92,6 +96,11 @@ public class PlayerController : MonoBehaviour {
       _CountBlinkCooldown += Time.deltaTime;
     }
 
+    if (_CountSlamCooldown < _SlamCooldown + 0.1f)
+    {
+      _CountSlamCooldown += Time.deltaTime;
+    }
+
     if (Input.GetKeyDown(KeyCode.LeftShift))
     {
       UsingBuffSpeed();
@@ -99,7 +108,7 @@ public class PlayerController : MonoBehaviour {
 
     if (Input.GetKeyDown(KeyCode.Space))
     {
-      UsingTackle();
+      UsingSlam();
     }
 
     if (Input.GetKeyDown(KeyCode.E))
@@ -141,6 +150,11 @@ public class PlayerController : MonoBehaviour {
       StartCoroutine("Blink");
       _CountBlinkCooldown = 0.0f;
     }
+  }
+
+  private void UsingSlam()
+  {
+
   }
 
   IEnumerator BuffSpeed()
@@ -199,5 +213,10 @@ public class PlayerController : MonoBehaviour {
     _VCam.Follow = transform;
     _IsNormalMove = true;
     _IsBlinking = false;
+  }
+
+  IEnumerator Slam()
+  {
+    yield return new WaitForSeconds(0.1f);
   }
 }
