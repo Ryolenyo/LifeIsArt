@@ -1,30 +1,42 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour {
   [SerializeField]
   private float _MaxDistance;
+  [SerializeField]
+  private CinemachineVirtualCamera _VCam;
+  [SerializeField]
+  private Transform _MouseReference;
 
   private readonly float _DefaultSpeed = 0.5f;
   private readonly float _DashSpeed = 2.0f;
   private readonly float _DashCooldown = 2.0f;
   private readonly float _TackleCooldown = 2.0f;
+  private readonly float _BlinkCooldown = 4.0f;
   private readonly float _TackleChargeTime = 1.0f;
   private readonly float _TackleChargeRange = 1.0f;
   private readonly float _TackleAttackRange = 2.0f;
   private readonly float _TackleAttackSpeed = 1.5f;
+  private readonly float _SelectBlinkAreaTime = 1.0f;
 
   private Vector3 _Target;
   private bool _IsNormalMove = true;
   private bool _IsTackle = false;
+  private bool _IsBlinking = false;
   private bool _UsingLerpMove = false;
   private float _CountDashCooldown = 0.0f;
   private float _CountTackleCooldown = 0.0f;
+  private float _CountBlinkCooldown = 0.0f;
 
   void Start()
   {
     _CountDashCooldown = _DashCooldown;
+    _CountTackleCooldown = _TackleCooldown;
+    _CountBlinkCooldown = _BlinkCooldown;
   }
 
   void FixedUpdate()
@@ -70,6 +82,11 @@ public class PlayerController : MonoBehaviour {
       _CountDashCooldown += Time.deltaTime;
     }
 
+    if (_CountBlinkCooldown < _BlinkCooldown + 0.1f)
+    {
+      _CountBlinkCooldown += Time.deltaTime;
+    }
+
     if (Input.GetKeyDown(KeyCode.LeftShift))
     {
       UsingBuffSpeed();
@@ -78,6 +95,11 @@ public class PlayerController : MonoBehaviour {
     if (Input.GetKeyDown(KeyCode.Space))
     {
       UsingTackle();
+    }
+
+    if (Input.GetKeyDown(KeyCode.E))
+    {
+      UsingBlink();
     }
   }
 
@@ -97,6 +119,16 @@ public class PlayerController : MonoBehaviour {
       _IsNormalMove = false;
       StartCoroutine("Tackle");
       _CountTackleCooldown = 0.0f;
+    }
+  }
+
+  private void UsingBlink()
+  {
+    if (_CountBlinkCooldown > _BlinkCooldown)
+    {
+      _IsNormalMove = false;
+      StartCoroutine("Blink");
+      _CountBlinkCooldown = 0.0f;
     }
   }
 
@@ -134,8 +166,24 @@ public class PlayerController : MonoBehaviour {
   IEnumerator TackleAttack()
   {
     Debug.Log("Tackle attacking.");
+    //if hit something shake the camera
     yield return new WaitForSeconds(0.2f);
     _IsNormalMove = true;
     _IsTackle = false;
+  }
+
+  IEnumerator Blink()
+  {
+    Debug.Log("Going to blink.");
+    yield return new WaitForSeconds(0.2f);
+    _IsBlinking = true;
+    StartCoroutine("SelectBlinkArea");
+  }
+
+  IEnumerator SelectBlinkArea()
+  {
+    Debug.Log("Selecting area.");
+    _VCam.Follow = _MouseReference;
+    yield return new WaitForSeconds(0.5f);
   }
 }
