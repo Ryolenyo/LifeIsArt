@@ -36,10 +36,8 @@ public class EnemySpawnPointController : MonoBehaviour {
     SpawnEnemy();
 
     _Time += Time.deltaTime;
-    Debug.Log("Time --> " + _Time);
     if (_Time > _SetNewValueTime)
     {
-      Debug.Log("Set new var.");
       SetNewValue();
       _Time = 0;
     }
