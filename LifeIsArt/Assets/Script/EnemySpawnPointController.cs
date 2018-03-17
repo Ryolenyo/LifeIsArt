@@ -16,7 +16,7 @@ public class EnemySpawnPointController : MonoBehaviour {
   private Dictionary<int, float> _CooldownPerGate;
   private Dictionary<int, Vector3> _SpawnPoints;
   private float _Time;
-  private Dictionary<int, float> _GateCooldown;
+  private Dictionary<int, float> _CountGateCooldown;
 
   void Awake()
   {
@@ -47,13 +47,13 @@ public class EnemySpawnPointController : MonoBehaviour {
   {
     foreach(KeyValuePair<int, float> entry in _CooldownPerGate)
     {
-      _GateCooldown[entry.Key] += Time.deltaTime;
-      if (_GateCooldown[entry.Key] > entry.Value)
+      _CountGateCooldown[entry.Key] += Time.deltaTime;
+      if (_CountGateCooldown[entry.Key] > entry.Value)
       {
         GameObject enemy = Instantiate(_EnemyPrefab, _SpawnPoints[entry.Key], Quaternion.identity);
         enemy.GetComponent<Enemy>().SetSpeed(Random.Range(0.3f, 1.2f));
         enemy.GetComponent<Enemy>().SetScale(Random.Range(3.0f, 18.0f)); // making for variant size TODO: have to make big boss size that create at normal distribution.
-        _GateCooldown[entry.Key] = 0.0f;
+        _CountGateCooldown[entry.Key] = 0.0f;
       }
     }
   }
@@ -62,7 +62,7 @@ public class EnemySpawnPointController : MonoBehaviour {
   {
     _SpawnPoints = new Dictionary<int, Vector3>();
     _CooldownPerGate = new Dictionary<int, float>();
-    _GateCooldown = new Dictionary<int, float>();
+    _CountGateCooldown = new Dictionary<int, float>();
 
     System.Random rng = new System.Random();
     //random number of enemy.
@@ -98,7 +98,7 @@ public class EnemySpawnPointController : MonoBehaviour {
 
       _SpawnPoints[i] = new Vector3(x, y);
       _CooldownPerGate[i] = rng.Next(1,3);
-      _GateCooldown[i] = 0.0f;
+      _CountGateCooldown[i] = 0.0f;
     }
   }
 }

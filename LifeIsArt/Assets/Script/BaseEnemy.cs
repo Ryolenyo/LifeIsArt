@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,6 +26,11 @@ public class BaseEnemy : MonoBehaviour {
   {
     OnMove();
     OnScaling();
+    OnUpdate();
+  }
+
+  protected virtual void OnUpdate()
+  {
   }
 
   protected virtual void OnMove()

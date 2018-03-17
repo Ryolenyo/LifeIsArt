@@ -10,6 +10,11 @@ public class Enemy : BaseEnemy {
     base.OnMove();
   }
 
+  protected override void OnUpdate()
+  {
+    base.OnUpdate();
+  }
+
   internal void SetSpeed(float speed)
   {
     _Speed = speed;
