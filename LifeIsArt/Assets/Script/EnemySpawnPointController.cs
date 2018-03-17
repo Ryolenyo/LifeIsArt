@@ -57,7 +57,6 @@ public class EnemySpawnPointController : MonoBehaviour
                 int num = Random.Range(0, enemylist.Length);
                 GameObject _EnemyPrefab = enemylist[num];
                 GameObject enemy = Instantiate(_EnemyPrefab, _SpawnPoints[entry.Key], Quaternion.identity);
-                Debug.Log("Spawn tag : "+ enemy.tag);
                 enemy.GetComponent<Enemy>().SetSpeed(Random.Range(0.3f, 1.2f));
                 enemy.GetComponent<Enemy>().SetScale(Random.Range(0.5f, 2.0f)); // making for variant size TODO: have to make big boss size that create at normal distribution.
                 _CountGateCooldown[entry.Key] = 0.0f;
