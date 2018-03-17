@@ -42,6 +42,7 @@ public class EnemySpawnPointController : MonoBehaviour
             SetNewValue();
             _Time = 0;
         }
+
     }
 
     private void SpawnEnemy()

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114418780673752642}
   m_Layer: 0
   m_Name: EnemyType_1
-  m_TagString: Untagged
+  m_TagString: E1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,6 +72,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Speed: 0
   _Scale: 0
+  min: -5
+  max: 5
+  firstpox: 0
+  firstpoy: 0
+  dir: 0
+  radius1: 10
+  radius2: 5
 --- !u!212 &212414017031620548
 SpriteRenderer:
   m_ObjectHideFlags: 1
