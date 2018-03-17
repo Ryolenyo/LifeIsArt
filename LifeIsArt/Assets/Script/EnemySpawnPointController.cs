@@ -81,24 +81,24 @@ public class EnemySpawnPointController : MonoBehaviour
             if (rng.Next(0, 2) == 0)
             {
                 //up
-                y = rng.Next(Mathf.RoundToInt(_MaxRandomRangeY / 2) - 6, Mathf.RoundToInt(_MaxRandomRangeY / 2));
+                y = rng.Next(Mathf.RoundToInt(_MaxRandomRangeY / 2) - 50, Mathf.RoundToInt(_MaxRandomRangeY / 2));
             }
             else
             {
                 //down
-                y = rng.Next(-Mathf.RoundToInt(_MaxRandomRangeY / 2), -Mathf.RoundToInt(_MaxRandomRangeY / 2) + 6);
+                y = rng.Next(-Mathf.RoundToInt(_MaxRandomRangeY / 2), -Mathf.RoundToInt(_MaxRandomRangeY / 2) + 50);
             }
 
             // random left right.
             if (rng.Next(0, 2) == 0)
             {
                 //left
-                x = rng.Next(-Mathf.RoundToInt(_MaxRandomRangeX / 2), -Mathf.RoundToInt(_MaxRandomRangeX / 2) + 6);
+                x = rng.Next(-Mathf.RoundToInt(_MaxRandomRangeX / 2), -Mathf.RoundToInt(_MaxRandomRangeX / 2) + 50);
             }
             else
             {
                 //right
-                x = rng.Next(Mathf.RoundToInt(_MaxRandomRangeX / 2) - 6, Mathf.RoundToInt(_MaxRandomRangeX / 2));
+                x = rng.Next(Mathf.RoundToInt(_MaxRandomRangeX / 2) - 50, Mathf.RoundToInt(_MaxRandomRangeX / 2));
             }
 
             _SpawnPoints[i] = new Vector3(x, y);
