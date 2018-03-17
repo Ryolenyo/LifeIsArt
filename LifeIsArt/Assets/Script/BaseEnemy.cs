@@ -58,6 +58,10 @@ public class BaseEnemy : MonoBehaviour {
         {
             MovingToPlayerPosition();
         }
+        else if (transform.tag == "E3")
+        {
+            DashToPlayer();
+        }
         else if (transform.tag == "E4")
         {
             MovingToPlayerPosition();
@@ -65,17 +69,31 @@ public class BaseEnemy : MonoBehaviour {
         }
   }
 
+    public float radius1 = 10;
+    public float radius2 = 5;
+
   protected virtual void OnScaling()
   {
     ScaleEnemy();
   }
 
-    private float choose = 0.5f;
+    float timeCounter = 0;
+    float poxSpin = 0;
+
 
     private void spinMove()
     {
-        transform.Rotate(0,0,90);
+        //transform.position += Vector3.up * 0.5f;
+        transform.Rotate(0, 0, 2);
+
+
+
+
+        
     }
+
+    private float choose = 0.5f;
+
     private void sinMove()
   {
         float pox;
@@ -119,7 +137,26 @@ public class BaseEnemy : MonoBehaviour {
     transform.position = new Vector3(transform.position.x - (_PlayerDirection.x * _Speed), transform.position.y - (_PlayerDirection.y * _Speed), 0.0f);
   }
 
-  private void ScaleEnemy()
+    int on = 0;
+
+    private void DashToPlayer()
+    {
+        transform.position = new Vector3(transform.position.x - (_PlayerDirection.x * _Speed), transform.position.y - (_PlayerDirection.y * _Speed), 0.0f);
+        float distant = Mathf.Sqrt(Mathf.Pow((transform.position.x - _Target.transform.position.x), 2) + Mathf.Pow((transform.position.y - _Target.transform.position.y), 2));
+        //Debug.Log(distant);
+        if ( distant < 20 && on == 0)
+        {
+            _Speed = _Speed*-1.5f;
+            on = 1;
+        }
+        if (_Speed < 0.00001f && distant > 40)
+        {
+            _Speed = _Speed*-3f;
+            
+        }
+     }
+
+    private void ScaleEnemy()
   {
     transform.localScale = new Vector3(_Scale, _Scale, 0.0f);
   }
