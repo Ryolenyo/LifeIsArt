@@ -56,8 +56,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4901908972638744}
   - component: {fileID: 135574199101906178}
-  - component: {fileID: 54877036915570766}
   - component: {fileID: 135531545556890592}
+  - component: {fileID: 135409378070756956}
+  - component: {fileID: 54718687844428422}
+  - component: {fileID: 135526672233900716}
   m_Layer: 0
   m_Name: SlamCollider
   m_TagString: Untagged
@@ -121,7 +123,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!54 &54877036915570766
+--- !u!54 &54718687844428422
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -189,6 +191,35 @@ MonoBehaviour:
   - {fileID: 21300012, guid: 042552df3da821d46919a7b15cf52f2d, type: 3}
   - {fileID: 21300018, guid: 042552df3da821d46919a7b15cf52f2d, type: 3}
   _SlamPower: {fileID: 1619835131426612}
+  boundary:
+    xMin: -77
+    xMax: 77
+    yMax: 75
+    yMin: -75
+--- !u!135 &135409378070756956
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1619835131426612}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 24
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &135526672233900716
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1619835131426612}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 24
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135531545556890592
 SphereCollider:
   m_ObjectHideFlags: 1
