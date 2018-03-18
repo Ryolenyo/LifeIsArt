@@ -62,10 +62,12 @@ public class PlayerController : MonoBehaviour {
 
   private void UpdatePosition()
   {
-    _Target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    _Target.z = transform.position.z;
+		if() {
+	    	_Target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    		_Target.z = transform.position.z;
 
-    MovingToward(_Target);
+    		MovingToward(_Target);
+		}
   }
 
   private void LookAtMouse()
