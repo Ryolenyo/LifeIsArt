@@ -28,6 +28,7 @@ public class ArtGeneratorController : MonoBehaviour {
 
   void Start()
   {
+    GameObject.Find("Score").GetComponent<Text>().text = "SCORE : " + PlayerPrefs.GetInt("Score", 0);
     GenerateArt();
   }
 
