@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 212095244169493184}
   - component: {fileID: 95041480607178326}
   - component: {fileID: 114689598010167930}
-  - component: {fileID: 70666395504157874}
-  - component: {fileID: 50121185803856388}
   - component: {fileID: 114824752545490788}
+  - component: {fileID: 65177901272299212}
+  - component: {fileID: 54340623190198734}
   m_Layer: 0
   m_Name: EnemyType_4
   m_TagString: E4
@@ -45,41 +45,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50121185803856388
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!54 &54340623190198734
+Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1636169112156596}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
   m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_UseGravity: 0
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &70666395504157874
-CapsuleCollider2D:
+  m_CollisionDetection: 0
+--- !u!65 &65177901272299212
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1636169112156596}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.000020987887, y: 0.059141643}
-  m_Size: {x: 8.594285, y: 7.9437532}
-  m_Direction: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.89, y: 7.92, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95041480607178326
 Animator:
   serializedVersion: 3
@@ -128,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d177b93fa6198494d9990015370f4f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  die: 0
 --- !u!212 &212095244169493184
 SpriteRenderer:
   m_ObjectHideFlags: 1
