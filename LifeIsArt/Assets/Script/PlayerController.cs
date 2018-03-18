@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour {
 
     if (Input.GetKeyDown(KeyCode.Mouse0) && _IsBlinking)
     {
-      _TeleportTarget = _MouseReference.position;
+      _TeleportTarget = new Vector3(_MouseReference.position.x, _MouseReference.position.y, transform.position.z);
     }
   }
 
