@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour {
   private readonly float _DefaultSpeed = 0.5f;
   private readonly float _DashSpeed = 2.0f;
   private readonly float _DashCooldown = 2.0f;
+  private readonly float _GunCooldown = 2.0f;
   private readonly float _TackleCooldown = 2.0f;
   private readonly float _SlamCooldown = 2.0f;
   private readonly float _BlinkCooldown = 4.0f;
@@ -42,6 +43,8 @@ public class PlayerController : MonoBehaviour {
   private bool _IsTackle = false;
   private bool _IsBlinking = false;
   private bool _IsSlaming = false;
+  private bool _IsGun = false;
+  private float _CountGunCooldown = 0.0f;
   private float _CountDashCooldown = 0.0f;
   private float _CountTackleCooldown = 0.0f;
   private float _CountBlinkCooldown = 0.0f;
@@ -49,10 +52,12 @@ public class PlayerController : MonoBehaviour {
   private Animator _Animator;
 
 	public Boundary boundary;
+    public GameObject bullet; //
 
   void Start()
   {
     _CountDashCooldown = _DashCooldown;
+    _CountGunCooldown = _GunCooldown;
     _CountTackleCooldown = _TackleCooldown;
     _CountBlinkCooldown = _BlinkCooldown;
     _CountSlamCooldown = _SlamCooldown;
@@ -102,7 +107,12 @@ public class PlayerController : MonoBehaviour {
       _CountTackleCooldown += Time.deltaTime;
     }
 
-    if (_CountDashCooldown < _DashCooldown + 0.1f)
+     if (_CountGunCooldown < _GunCooldown + 0.1f)
+     {
+         _CountGunCooldown += Time.deltaTime;
+     }
+
+        if (_CountDashCooldown < _DashCooldown + 0.1f)
     {
       _CountDashCooldown += Time.deltaTime;
     }
@@ -122,7 +132,12 @@ public class PlayerController : MonoBehaviour {
       UsingBuffSpeed();
     }
 
-    if (Input.GetKeyDown(KeyCode.Space))
+     if (Input.GetKeyDown(KeyCode.Q)) //////
+     {
+         UsingGun();
+     }
+
+        if (Input.GetKeyDown(KeyCode.Space))
     {
       UsingSlam();
     }
@@ -170,7 +185,17 @@ public class PlayerController : MonoBehaviour {
     }
   }
 
-  private void UsingSlam()
+    private void UsingGun() //////////////////////////////////////////
+    {
+        if (_CountGunCooldown > _GunCooldown)
+        {
+            DataCollectorController.AddStat("Shoot");
+            Instantiate(bullet,transform.position,transform.rotation);
+            _CountSlamCooldown = 0.0f;
+        }
+    }
+
+    private void UsingSlam()
   {
     if (_CountSlamCooldown > _SlamCooldown)
     {
@@ -258,7 +283,6 @@ public class PlayerController : MonoBehaviour {
   public void OnDestroy()
   {
     GameObject.Find("Canvas").GetComponent<loadSceneplay>().die = true;
-    //GameObject.Find("Canvas.Text").GetComponent<showTime>().SetLastestScore();
     Destroy(gameObject);
   }
 }
