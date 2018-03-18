@@ -19,6 +19,11 @@ public class showTime : MonoBehaviour {
 	void Update () {
         timef += Time.deltaTime;
         time = Mathf.RoundToInt(timef);
-        text.text = "SCORE\n" + time;		
+        text.text = "SCORE\n" + time;
 	}
+
+  public void SetLastestScore()
+  {
+    PlayerPrefs.SetInt("Score", time);
+  }
 }
