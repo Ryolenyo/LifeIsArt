@@ -12,8 +12,6 @@ public class DestroyPlayer : MonoBehaviour {
         {
           other.gameObject.GetComponent<PlayerController>().OnDestroy();
         }
-
-        Debug.Log("state : " + die);
     }
 
 }
