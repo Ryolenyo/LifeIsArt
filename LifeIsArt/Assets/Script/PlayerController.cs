@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+[System.Serializable]
 public class Boundary
 {
 	public float xMin = -77;
@@ -74,15 +75,8 @@ public class PlayerController : MonoBehaviour {
   {
 	_Target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     _Target.z = transform.position.z;
-
+	
     MovingToward(_Target);
-
-		transform.position = new Vector3
-		(
-			Mathf.Clamp(transform.position.x, boundary.xMin, boundary.xMax),
-			Mathf.Clamp(transform.position.y, boundary.yMin, boundary.yMax),
-			0.0f
-		);
   }
 
   private void LookAtMouse()
@@ -94,6 +88,11 @@ public class PlayerController : MonoBehaviour {
   private void MovingToward(Vector3 target)
   {
     if (_IsNormalMove) transform.position = Vector3.MoveTowards(transform.position, target, _MaxDistance);
+		transform.position = new Vector3 (
+			Mathf.Clamp (transform.position.x, boundary.xMin, boundary.xMax),
+			Mathf.Clamp (transform.position.y, boundary.yMin, boundary.yMax),
+			0.0f
+		);
   }
 
   private void CheckAction()
