@@ -24,6 +24,15 @@ public class PlayerController : MonoBehaviour {
   private Sprite[] _SpriteTackle;
   [SerializeField]
   private GameObject _SlamPower;
+  [SerializeField]
+  private AudioClip _SoundDash;
+  [SerializeField]
+  private AudioClip _SoundSlam;
+  [SerializeField]
+  private AudioClip _SoundShoot;
+  [SerializeField]
+  private AudioClip _SoundBlink;
+
   private readonly float _DefaultSpeed = 0.5f;
   private readonly float _DashSpeed = 2.0f;
   private readonly float _DashCooldown = 2.0f;
@@ -50,6 +59,7 @@ public class PlayerController : MonoBehaviour {
   private float _CountBlinkCooldown = 0.0f;
   private float _CountSlamCooldown = 0.0f;
   private Animator _Animator;
+  private AudioSource _Source;
 
 	public Boundary boundary;
     public GameObject bullet; //
@@ -62,6 +72,7 @@ public class PlayerController : MonoBehaviour {
     _CountBlinkCooldown = _BlinkCooldown;
     _CountSlamCooldown = _SlamCooldown;
     _Animator = GetComponent<Animator>();
+    _Source = GetComponent<AudioSource>();
   }
 
   void FixedUpdate()
@@ -158,6 +169,7 @@ public class PlayerController : MonoBehaviour {
     if (_CountDashCooldown > _DashCooldown)
     {
       DataCollectorController.AddStat("Dash");
+      _Source.PlayOneShot(_SoundDash);
       StartCoroutine("BuffSpeed");
       _CountDashCooldown = 0.0f;
     }
@@ -177,6 +189,7 @@ public class PlayerController : MonoBehaviour {
   {
     if (_CountBlinkCooldown > _BlinkCooldown)
     {
+      _Source.PlayOneShot(_SoundBlink);
       DataCollectorController.AddStat("Blink");
       _TeleportTarget = transform.position;
       _IsNormalMove = false;
@@ -189,7 +202,9 @@ public class PlayerController : MonoBehaviour {
     {
         if (_CountGunCooldown > _GunCooldown)
         {
-            DataCollectorController.AddStat("Shoot");
+      _Source.PlayOneShot(_SoundShoot);
+
+      DataCollectorController.AddStat("Shoot");
             Instantiate(bullet,transform.position,transform.rotation);
             _CountGunCooldown = 0.0f;
         }
@@ -199,6 +214,7 @@ public class PlayerController : MonoBehaviour {
   {
     if (_CountSlamCooldown > _SlamCooldown)
     {
+      _Source.PlayOneShot(_SoundSlam);
       DataCollectorController.AddStat("Slam");
       _IsNormalMove = false;
       StartCoroutine("Slam");
