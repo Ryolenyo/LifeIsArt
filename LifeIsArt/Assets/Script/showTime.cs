@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class showTime : MonoBehaviour {
+public class showTime : DestroyPlayer {
 
     Text text;
-    int time;
+    public int time = 0;
     float timef;
     // Use this for initialization
     void Awake () {
@@ -17,12 +17,14 @@ public class showTime : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        timef += Time.deltaTime;
+        if(!base.die)
+            timef += Time.deltaTime;
         time = Mathf.RoundToInt(timef);
         text.text = "SCORE\n" + time;
-	}
+        Debug.Log("hey" + time);
+    }
 
-  public void SetLastestScore()
+    public void SetLastestScore()
   {
     PlayerPrefs.SetInt("Score", time);
   }

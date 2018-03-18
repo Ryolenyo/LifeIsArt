@@ -258,6 +258,7 @@ public class PlayerController : MonoBehaviour {
   public void OnDestroy()
   {
     GameObject.Find("Canvas").GetComponent<loadSceneplay>().die = true;
+    //GameObject.Find("Canvas.Text").GetComponent<showTime>().SetLastestScore();
     Destroy(gameObject);
   }
 }
