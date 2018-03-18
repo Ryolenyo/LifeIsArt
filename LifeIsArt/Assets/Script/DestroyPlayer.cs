@@ -8,8 +8,7 @@ public class DestroyPlayer : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             Destroy(other.gameObject);
             die = true;

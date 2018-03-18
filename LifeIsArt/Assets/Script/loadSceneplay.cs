@@ -26,7 +26,13 @@ public class loadSceneplay : DestroyPlayer {
         {
             time += Time.deltaTime;
         }
-        if(time > 2.0f ||  base.die)
+        else
+        {
+            Scene sceneLoaded = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(sceneLoaded.buildIndex + 1);
+        }
+
+        if(time > 2.0f && SceneManager.GetActiveScene().name.Equals("Play"))
         {
             Scene sceneLoaded = SceneManager.GetActiveScene();
             SceneManager.LoadScene(sceneLoaded.buildIndex + 1);
