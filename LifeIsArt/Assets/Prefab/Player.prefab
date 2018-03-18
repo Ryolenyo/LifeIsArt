@@ -55,8 +55,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4901908972638744}
-  - component: {fileID: 58077829817611476}
-  - component: {fileID: 50171710639048198}
+  - component: {fileID: 54376193198175800}
+  - component: {fileID: 135574199101906178}
   m_Layer: 0
   m_Name: SlamCollider
   m_TagString: Untagged
@@ -105,26 +105,21 @@ Transform:
   m_Father: {fileID: 4123116843459834}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50171710639048198
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!54 &54376193198175800
+Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1619835131426612}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
   m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_UseGravity: 0
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_Constraints: 0
   m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!54 &54512115693283570
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -140,21 +135,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!58 &58077829817611476
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1619835131426612}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 8.81
 --- !u!95 &95711047228437566
 Animator:
   serializedVersion: 3
@@ -186,7 +166,7 @@ MonoBehaviour:
   isShadowTrailActive: 0
   maxNumberOfObjectsInPool: 20
   shadowTrailDestroyTime: 0.1
-  shadowStartingAlpha: 0.097
+  shadowStartingAlpha: 0.399
 --- !u!114 &114181063809324968
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -208,6 +188,18 @@ MonoBehaviour:
   - {fileID: 21300012, guid: 042552df3da821d46919a7b15cf52f2d, type: 3}
   - {fileID: 21300018, guid: 042552df3da821d46919a7b15cf52f2d, type: 3}
   _SlamPower: {fileID: 1619835131426612}
+--- !u!135 &135574199101906178
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1619835131426612}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 24
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136589653247923950
 CapsuleCollider:
   m_ObjectHideFlags: 1

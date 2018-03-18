@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DataCollectorController : MonoBehaviour {
 
-  public void AddStat(string action)
+  public static void AddStat(string action)
   {
     PlayerPrefs.SetInt(action, PlayerPrefs.GetInt(action, 0) + 1);
   }

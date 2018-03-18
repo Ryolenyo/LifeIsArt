@@ -126,6 +126,7 @@ public class PlayerController : MonoBehaviour {
   {
     if (_CountDashCooldown > _DashCooldown)
     {
+      DataCollectorController.AddStat("Dash");
       StartCoroutine("BuffSpeed");
       _CountDashCooldown = 0.0f;
     }
@@ -145,6 +146,7 @@ public class PlayerController : MonoBehaviour {
   {
     if (_CountBlinkCooldown > _BlinkCooldown)
     {
+      DataCollectorController.AddStat("Blink");
       _TeleportTarget = transform.position;
       _IsNormalMove = false;
       StartCoroutine("Blink");
@@ -156,6 +158,7 @@ public class PlayerController : MonoBehaviour {
   {
     if (_CountSlamCooldown > _SlamCooldown)
     {
+      DataCollectorController.AddStat("Slam");
       _IsNormalMove = false;
       StartCoroutine("Slam");
       _CountSlamCooldown = 0.0f;
