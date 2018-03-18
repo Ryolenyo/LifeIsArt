@@ -36,12 +36,9 @@ public class ArtGeneratorController : MonoBehaviour {
   private void GenerateArt()
   {
     int allAction = SumAllAction();
-    Debug.Log("All action == " + allAction);
-    if (allAction > 15) allAction = Mathf.Clamp(allAction, 5, 15);
-    //int size = Random.Range(5, 15);
-    int size = allAction;
-    Debug.Log("size of action == " + size);
-    for (int i = 0; i < size; i++)
+    allAction = Mathf.Clamp(allAction, 5, 15);
+
+    for (int i = 0; i < allAction; i++)
     {
       //choose brush type
       int type = Random.Range(1,5);
@@ -55,6 +52,10 @@ public class ArtGeneratorController : MonoBehaviour {
       obj.transform.localPosition = coor;
       obj.GetComponent<Image>().SetNativeSize();
       obj.transform.localScale = new Vector3(0.5f, 0.5f,0.0f);
+      float randx = Random.Range(0.0f, 20.0f);
+      float randy = Random.Range(0.0f, 20.0f);
+      float randz = Random.Range(0.0f, 180.0f);
+      obj.transform.rotation = new Quaternion(randx, randy, randz, 0.0f);
     }
   }
 
