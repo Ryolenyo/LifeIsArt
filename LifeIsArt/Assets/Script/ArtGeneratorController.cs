@@ -16,6 +16,8 @@ public class ArtGeneratorController : MonoBehaviour {
 
   private float _CanvasWidth;
   private float _CanvasHeight;
+  private string[] _AllAction = new string[4] { "Dash", "Blink", "Slam", "Shoot" }; //TODO: Shoot didnt using yet
+
 
   void Awake()
   {
@@ -33,7 +35,12 @@ public class ArtGeneratorController : MonoBehaviour {
 
   private void GenerateArt()
   {
-    int size = Random.Range(5, 15);
+    int allAction = SumAllAction();
+    Debug.Log("All action == " + allAction);
+    if (allAction > 15) allAction = Mathf.Clamp(allAction, 5, 15);
+    //int size = Random.Range(5, 15);
+    int size = allAction;
+    Debug.Log("size of action == " + size);
     for (int i = 0; i < size; i++)
     {
       //choose brush type
@@ -44,10 +51,38 @@ public class ArtGeneratorController : MonoBehaviour {
       float x = Random.Range(-_CanvasWidth/2, _CanvasWidth/2);
       float y = Random.Range(-_CanvasHeight/2, _CanvasHeight/2);
       Vector3 coor = new Vector3(x, y, 0.0f);
-      GameObject obj = Instantiate(_BrushType1[0], transform);
+      GameObject obj = Instantiate(SelectBrush(type, color), transform);
       obj.transform.localPosition = coor;
       obj.GetComponent<Image>().SetNativeSize();
       obj.transform.localScale = new Vector3(0.5f, 0.5f,0.0f);
     }
+  }
+
+  private GameObject SelectBrush(int type, int color)
+  {
+    switch (type)
+    {
+      case 1:
+        return _BrushType1[color];
+      case 2:
+        return _BrushType2[color];
+      case 3:
+        return _BrushType3[color];
+      case 4:
+        return _BrushType4[color];
+      default:
+        return null;
+    }
+  }
+
+  private int SumAllAction()
+  {
+    int total = 0;
+    for(int i = 0; i < _AllAction.Length; i++)
+    {
+      total += PlayerPrefs.GetInt(_AllAction[i], 0);
+    }
+
+    return total;
   }
 }

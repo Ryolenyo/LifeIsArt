@@ -17,6 +17,12 @@ public class loadSceneplay : DestroyPlayer {
         {
             nextButton.onClick.AddListener(TaskOnClick);
         }
+
+        if (sceneLoaded.name == "Start")
+        {
+            Debug.Log("Im delete all.");
+            PlayerPrefs.DeleteAll();
+        }
     }
 
    //  Update is called once per frame
