@@ -10,7 +10,7 @@ public class DestroyPlayer : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Player"))
         {
-          other.gameObject.GetComponent<PlayerController>().OnDestroy();
+            other.gameObject.GetComponent<PlayerController>().OnDestroy();
         }
     }
 
