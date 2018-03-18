@@ -162,33 +162,9 @@ Prefab:
       propertyPath: _MouseReference
       value: 
       objectReference: {fileID: 1935079510}
-    - target: {fileID: 54718687844428422, guid: fb1d4b2cb5b8bda47b2567f39d12fa9e,
-        type: 2}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 135409378070756956, guid: fb1d4b2cb5b8bda47b2567f39d12fa9e, type: 2}
-    - {fileID: 135531545556890592, guid: fb1d4b2cb5b8bda47b2567f39d12fa9e, type: 2}
-    - {fileID: 135574199101906178, guid: fb1d4b2cb5b8bda47b2567f39d12fa9e, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb1d4b2cb5b8bda47b2567f39d12fa9e, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &111911923 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1619835131426612, guid: fb1d4b2cb5b8bda47b2567f39d12fa9e,
-    type: 2}
-  m_PrefabInternal: {fileID: 111911922}
---- !u!114 &111911924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 111911923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 750443457abb3514d90772822b180350, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &146965927
 Prefab:
   m_ObjectHideFlags: 0

@@ -55,11 +55,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4901908972638744}
-  - component: {fileID: 135574199101906178}
-  - component: {fileID: 135531545556890592}
-  - component: {fileID: 135409378070756956}
   - component: {fileID: 54718687844428422}
   - component: {fileID: 135526672233900716}
+  - component: {fileID: 114095362764883084}
   m_Layer: 0
   m_Name: SlamCollider
   m_TagString: Untagged
@@ -133,7 +131,7 @@ Rigidbody:
   m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -155,6 +153,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114095362764883084
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1619835131426612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 750443457abb3514d90772822b180350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114117592628087368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -196,43 +205,8 @@ MonoBehaviour:
     xMax: 77
     yMax: 75
     yMin: -75
---- !u!135 &135409378070756956
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1619835131426612}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 24
-  m_Center: {x: 0, y: 0, z: 0}
+  bullet: {fileID: 1327332256741358, guid: ccac9a7f9a6834a4aa7584669500e93a, type: 2}
 --- !u!135 &135526672233900716
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1619835131426612}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 24
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135531545556890592
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1619835131426612}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 24
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135574199101906178
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

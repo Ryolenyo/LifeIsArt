@@ -191,7 +191,7 @@ public class PlayerController : MonoBehaviour {
         {
             DataCollectorController.AddStat("Shoot");
             Instantiate(bullet,transform.position,transform.rotation);
-            _CountSlamCooldown = 0.0f;
+            _CountGunCooldown = 0.0f;
         }
     }
 
