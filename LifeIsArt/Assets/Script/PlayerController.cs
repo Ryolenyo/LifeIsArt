@@ -4,6 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+public class Boundary
+{
+	public float xMin = -77;
+	public float xMax = 77;
+	public float yMax = 75;
+	public float yMin = -75;
+}
+
 public class PlayerController : MonoBehaviour {
   [SerializeField]
   private float _MaxDistance;
@@ -39,6 +47,8 @@ public class PlayerController : MonoBehaviour {
   private float _CountSlamCooldown = 0.0f;
   private Animator _Animator;
 
+	public Boundary boundary;
+
   void Start()
   {
     _CountDashCooldown = _DashCooldown;
@@ -62,12 +72,17 @@ public class PlayerController : MonoBehaviour {
 
   private void UpdatePosition()
   {
-		if() {
-	    	_Target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    		_Target.z = transform.position.z;
+	_Target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    _Target.z = transform.position.z;
 
-    		MovingToward(_Target);
-		}
+    MovingToward(_Target);
+
+		transform.position = new Vector3
+		(
+			Mathf.Clamp(transform.position.x, boundary.xMin, boundary.xMax),
+			Mathf.Clamp(transform.position.y, boundary.yMin, boundary.yMax),
+			0.0f
+		);
   }
 
   private void LookAtMouse()
