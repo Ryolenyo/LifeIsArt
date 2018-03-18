@@ -32,7 +32,7 @@ public class loadSceneplay : DestroyPlayer {
             SceneManager.LoadScene(sceneLoaded.buildIndex + 1);
         }
 
-        if(time > 2.0f && SceneManager.GetActiveScene().name.Equals("Play"))
+        if(time > 2.0f && !SceneManager.GetActiveScene().name.Equals("Prototype"))
         {
             Scene sceneLoaded = SceneManager.GetActiveScene();
             SceneManager.LoadScene(sceneLoaded.buildIndex + 1);

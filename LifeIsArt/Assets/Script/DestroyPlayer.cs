@@ -8,12 +8,12 @@ public class DestroyPlayer : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.tag);
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(other.gameObject);
-            die = true;
+          other.gameObject.GetComponent<PlayerController>().OnDestroy();
         }
+
+        Debug.Log("state : " + die);
     }
 
 }

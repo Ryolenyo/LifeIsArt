@@ -235,4 +235,10 @@ public class PlayerController : MonoBehaviour {
     _Animator.SetBool("Slam", false);
     _IsNormalMove = true;
    }
+
+  public void OnDestroy()
+  {
+    GameObject.Find("Canvas").GetComponent<loadSceneplay>().die = true;
+    Destroy(gameObject);
+  }
 }
