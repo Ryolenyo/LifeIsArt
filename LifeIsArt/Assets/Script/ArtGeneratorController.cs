@@ -86,7 +86,7 @@ public class ArtGeneratorController : MonoBehaviour {
       case "Blink":
         return _BrushType4[color];
       default:
-        return _BrushType1[color];
+        return _BrushType3[color];
     }
   }
 
